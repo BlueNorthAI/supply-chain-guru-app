@@ -24,7 +24,7 @@ export const TaskBreadcrumbs = ({
   const router = useRouter();
   const workspaceId = useWorkspaceId();
 
-  const { mutate, isPending } = useDeleteTask();
+  const { mutate } = useDeleteTask();
   const [ConfirmDialog, confirm] = useConfirm(
     "Delete task",
     "This action cannot be undone.",
@@ -61,7 +61,6 @@ export const TaskBreadcrumbs = ({
       </p>
       <Button
         onClick={handleDeleteTask}
-        disabled={isPending}
         className="ml-auto"
         variant="destructive"
         size="sm"

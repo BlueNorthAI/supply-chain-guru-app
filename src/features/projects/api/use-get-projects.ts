@@ -24,6 +24,7 @@ export const useGetProjects = ({
 
       return data;
     },
+    enabled: !!workspaceId,
   });
 
   return query;

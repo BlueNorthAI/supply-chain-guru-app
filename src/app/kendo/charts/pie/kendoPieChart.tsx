@@ -12,7 +12,7 @@ const labelContent = (props: { dataItem: { value: number } }) => {
 
 
 
-export function PieChartContainer({series}){
+export function PieChartContainer({series }: {series: any}){
 return(
 
     <Chart style={{height: 250}}>
@@ -34,7 +34,7 @@ return(
     )
 }
 
-export function PieChartContainerVisible({series}){
+export function PieChartContainerVisible({series}: {series: any}){
   return(
   
       <Chart style={{height: 200}}>

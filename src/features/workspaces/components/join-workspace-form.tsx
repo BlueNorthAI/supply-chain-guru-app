@@ -29,7 +29,7 @@ export const JoinWorkspaceForm = ({
   const router = useRouter();
   const workspaceId = useWorkspaceId();
   const inviteCode = useInviteCode();
-  const { mutate, isPending } = useJoinWorkspace();
+  const { mutate } = useJoinWorkspace();
 
   const onSubmit = () => {
     mutate({
@@ -63,7 +63,6 @@ export const JoinWorkspaceForm = ({
             asChild
             size="lg"
             className="w-full lg:w-fit"
-            disabled={isPending}
           >
             <Link href="/">
               Cancel
@@ -74,7 +73,6 @@ export const JoinWorkspaceForm = ({
             className="w-full lg:w-fit"
             type="button"
             onClick={onSubmit}
-            disabled={isPending}
           >
             Join Workspace
           </Button>

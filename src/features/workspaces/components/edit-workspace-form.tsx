@@ -38,14 +38,14 @@ interface EditWorkspaceFormProps {
 
 export const EditWorkspaceForm = ({ onCancel, initialValues }: EditWorkspaceFormProps) => {
   const router = useRouter();
-  const { mutate, isPending } = useUpdateWorkspace();
+  const { mutate, isLoading: isPending } = useUpdateWorkspace();
   const { 
     mutate: deleteWorkspace, 
-    isPending: isDeletingWorkspace
+    isLoading: isDeletingWorkspace
   } = useDeleteWorkspace();
   const { 
     mutate: resetInviteCode, 
-    isPending: isResettingInviteCode
+    isLoading: isResettingInviteCode
   } = useResetInviteCode();
 
   const [DeleteDialog, confirmDelete] = useConfirm(

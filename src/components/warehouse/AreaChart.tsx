@@ -9,13 +9,13 @@ import {
 
 import { Area, AreaChart, CartesianGrid, LabelList, XAxis } from "recharts"
 
-export default function AreaChartCard({kpiData}) {
+export default function AreaChartCard({kpiData }: {kpiData: any}) {
   // const emptyStyles = { background: '#ef4444' };
   // const progressStyles = { background: '#22c55e' };
 
   return (
     <>
-       {kpiData.map((kpi) => (
+       {kpiData.map((kpi: any) => (
         <ChartContainer key={kpi.title} config={kpi.chartConfig} className="mx-auto  max-h-[250px] pb-0 [&_.recharts-pie-label-text]:fill-foreground" >
           <AreaChart
             accessibilityLayer

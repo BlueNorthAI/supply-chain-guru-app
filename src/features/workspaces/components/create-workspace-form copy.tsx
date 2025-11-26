@@ -32,7 +32,7 @@ interface CreateWorkspaceFormProps {
 
 export const CreateWorkspaceForm = ({ onCancel }: CreateWorkspaceFormProps) => {
   const router = useRouter();
-  const { mutate, isPending } = useCreateWorkspace();
+  const { mutate } = useCreateWorkspace();
 
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -134,12 +134,11 @@ export const CreateWorkspaceForm = ({ onCancel }: CreateWorkspaceFormProps) => {
                           accept=".jpg, .png, .jpeg, .svg"
                           ref={inputRef}
                           onChange={handleImageChange}
-                          disabled={isPending}
+                          
                         />
                         {field.value ? (
                           <Button
                             type="button"
-                            disabled={isPending}
                             variant="destructive"
                             size="xs"
                             className="w-fit mt-2"
@@ -155,7 +154,6 @@ export const CreateWorkspaceForm = ({ onCancel }: CreateWorkspaceFormProps) => {
                         ) : (
                           <Button
                             type="button"
-                            disabled={isPending}
                             variant="teritary"
                             size="xs"
                             className="w-fit mt-2"
@@ -177,13 +175,11 @@ export const CreateWorkspaceForm = ({ onCancel }: CreateWorkspaceFormProps) => {
                 size="lg"
                 variant="secondary"
                 onClick={onCancel}
-                disabled={isPending}
                 className={cn(!onCancel && "invisible")}
               >
                 Cancel
               </Button>
               <Button
-                disabled={isPending}
                 type="submit"
                 size="lg"
               >

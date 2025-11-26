@@ -14,7 +14,10 @@ export default function IncidentPage() {
         <DataTable
           filterKey="sku"
           columns={columns}
-          data={taskData}
+          data={taskData.map(task => ({
+            ...task,
+            expId: task.id // Add missing expId field
+          }))}
           onDelete={() => { }}
         />
       </div>

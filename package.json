@@ -11,6 +11,7 @@
   "dependencies": {
     "@ag-grid-community/client-side-row-model": "^31.2.0",
     "@ag-grid-community/core": "^31.2.0",
+    "@faker-js/faker": "^9.7.0",
     "@headlessui/react": "^2.2.0",
     "@hello-pangea/dnd": "^17.0.0",
     "@heroicons/react": "^2.2.0",
@@ -35,7 +36,7 @@
     "@radix-ui/react-slot": "^1.1.1",
     "@radix-ui/react-tabs": "^1.1.1",
     "@radix-ui/react-tooltip": "^1.1.8",
-    "@tanstack/react-query": "5.59.0",
+    "@tanstack/react-query": "4.29.x",
     "@tanstack/react-table": "8.20.5",
     "@xyflow/react": "^12.4.2",
     "ag-charts-enterprise": "^11.0.0",
@@ -51,8 +52,8 @@
     "date-fns": "^4.1.0",
     "hammerjs": "^2.0.8",
     "hono": "^4.6.3",
-    "lucide-react": "^0.447.0",
-    "next": "14.2.14",
+    "lucide-react": "^0.488.0",
+    "next": "15.2.3",
     "next-themes": "^0.3.0",
     "node-appwrite": "14.0.0",
     "nuqs": "1.19.1",
@@ -75,15 +76,15 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@types/node": "^20.17.17",
-    "@types/react": "^18",
+    "@types/node": "^22.13.10",
+    "@types/react": "^19.0.12",
     "@types/react-big-calendar": "1.8.11",
-    "@types/react-dom": "^18",
+    "@types/react-dom": "^19.0.4",
     "daisyui": "^4.12.23",
     "eslint": "^8",
     "eslint-config-next": "14.2.14",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "typescript": "^5.8.2"
   }
 }

@@ -33,7 +33,7 @@ interface CreateWorkspaceFormProps {
 
 export const CreateWorkspaceForm = ({ onCancel }: CreateWorkspaceFormProps) => {
   const router = useRouter();
-  const { mutate, isPending } = useCreateWorkspace();
+  const { mutate } = useCreateWorkspace();
   // const {
   //   data: accounts,
   // } = useGetAccounts({ workspaceId });
@@ -209,13 +209,11 @@ export const CreateWorkspaceForm = ({ onCancel }: CreateWorkspaceFormProps) => {
                 size="lg"
                 variant="secondary"
                 onClick={onCancel}
-                disabled={isPending}
                 className={cn(!onCancel && "invisible")}
               >
                 Cancel
               </Button>
               <Button
-                disabled={isPending}
                 type="submit"
                 size="lg"
               >

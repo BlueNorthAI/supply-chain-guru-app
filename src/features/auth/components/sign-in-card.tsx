@@ -29,7 +29,7 @@ import { loginSchema } from "../schemas";
 import { useLogin } from "../api/use-login";
 
 export const SignInCard = () => {
-  const { mutate, isPending } = useLogin();
+  const { mutate } = useLogin();
 
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
@@ -44,9 +44,9 @@ export const SignInCard = () => {
   };
 
   return (
-    <Card className="w-full h-full md:w-[487px] border-none shadow-none">
+    <Card className="w-full h-full md:w-[575px] border-none shadow-md">
       <CardHeader className="flex items-center justify-center text-center p-7">
-        <CardTitle className="text-2xl">
+        <CardTitle className="text-3xl font-semibold">
           Welcome back!
         </CardTitle>
       </CardHeader>
@@ -66,6 +66,7 @@ export const SignInCard = () => {
                       {...field}
                       type="email"
                       placeholder="Enter email address"
+                      className="text-lg"
                     />
                   </FormControl>
                   <FormMessage />
@@ -82,13 +83,14 @@ export const SignInCard = () => {
                       {...field}
                       type="password"
                       placeholder="Enter password"
+                      className=""
                     />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-            <Button disabled={isPending} size="lg" className="w-full">
+            <Button size="lg" className="w-full text-lg font-semibold">
               Login
             </Button>
           </form>
@@ -97,8 +99,8 @@ export const SignInCard = () => {
       <div className="px-7">
         <DottedSeparator />
       </div>
-      <CardContent className="p-7 flex flex-col gap-y-4">
-        {/* <Button
+      {/* <CardContent className="p-7 flex flex-col gap-y-4">
+        <Button
           onClick={() => signUpWithGoogle()}
           disabled={isPending}
           variant="secondary"
@@ -107,8 +109,8 @@ export const SignInCard = () => {
         >
           <FcGoogle className="mr-2 size-5" />
           Login with Google
-        </Button> */}
-        {/* <Button
+        </Button> 
+         <Button
           onClick={() => signUpWithGithub()}
           disabled={isPending}
           variant="secondary"
@@ -117,8 +119,8 @@ export const SignInCard = () => {
         >
           <FaGithub className="mr-2 size-5" />
           Login with Github
-        </Button> */}
-      </CardContent>
+        </Button> 
+      </CardContent> */}
       {/* <div className="px-7">
         <DottedSeparator />
       </div> */}
@@ -126,7 +128,7 @@ export const SignInCard = () => {
         <p>
           Don&apos;t have an account?
           <Link href="/sign-up">
-            <span className="text-blue-700">&nbsp;Sign Up</span>
+            <span className="text-primary text-lg font-semibold">&nbsp;Sign Up</span>
           </Link>
         </p>
       </CardContent>

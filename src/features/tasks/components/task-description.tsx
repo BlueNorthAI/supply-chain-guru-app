@@ -16,7 +16,7 @@ export const TaskDescription = ({ task }: TaskDescriptionProps) => {
   const [isEditing, setIsEditing] = useState(false);
   const [value, setValue] = useState(task.description);
 
-  const { mutate, isPending } = useUpdateTask();
+  const { mutate } = useUpdateTask();
 
   const handleSave = () => {
     mutate({ 
@@ -50,15 +50,13 @@ export const TaskDescription = ({ task }: TaskDescriptionProps) => {
             value={value}
             rows={4}
             onChange={(e) => setValue(e.target.value)}
-            disabled={isPending}
           />
           <Button
             size="sm"
             className="w-fit ml-auto"
             onClick={handleSave}
-            disabled={isPending}
           >
-            {isPending ? "Saving..." : "Save Changes"}
+            Save Changes
           </Button>
         </div>
       ) : (

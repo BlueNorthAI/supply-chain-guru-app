@@ -31,7 +31,7 @@ export const TaskActions = ({ id, projectId, children }: TaskActionsProps) => {
     "This action cannot be undone.",
     "destructive"
   );
-  const { mutate, isPending } = useDeleteTask();
+  const { mutate } = useDeleteTask();
 
   const onDelete = async () => {
     const ok = await confirm();
@@ -79,7 +79,6 @@ export const TaskActions = ({ id, projectId, children }: TaskActionsProps) => {
           </DropdownMenuItem>
           <DropdownMenuItem
             onClick={onDelete}
-            disabled={isPending}
             className="text-amber-700 focus:text-amber-700 font-medium p-[10px]"
           >
             <TrashIcon className="size-4 mr-2 stroke-2" />

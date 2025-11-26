@@ -27,10 +27,17 @@ export default function AlertsTab() {
             <div className="px-4">
                 <DataFilters />
                 <DataTable
-                    filterKey="warehouseId"
+                    filterKey="id"
                     columns={columns}
                     // data={alerts?.documents || []}
-                    data={tasks}
+                    data={tasks.map(task => ({
+                        ...task,
+                        details: '',
+                        type: task.risk,
+                        process: '',
+                        action: task.resolution,
+                        owner: ''
+                    }))}
                     onDelete={() => { }}
                 />
             </div>

@@ -234,7 +234,7 @@ export default function OnTimeDeliveryHeatmap() {
                 >
                   <TableCell className="font-medium sticky left-0 bg-white z-10">{carrier.name}</TableCell>
                   {locations.map((location) => {
-                    const value = carrier.data[location] || null
+                    const value = carrier.data[location as keyof typeof carrier.data] || null
                     return (
                       <TableCell
                         key={`${carrier.name}-${location}`}

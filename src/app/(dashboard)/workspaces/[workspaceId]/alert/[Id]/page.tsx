@@ -9,20 +9,23 @@ import { Badge } from '@/components/ui/badge';
 // import { useGetAlerts } from "@/features/alerts/api/use-get-alerts";
 import { useEffect, useState } from 'react';
 import tasksData from "@/app/(dashboard)/workspaces/[workspaceId]/alert/tasks.json";
-export default function PageId({
-    params,
-}: {
-    params: { Id: string }
-}) {
+import { useParams } from 'next/navigation';
+
+
+export default function AlertPage() {
     // const workspaceId = useWorkspaceId();
     // const { data: alerts } = useGetAlerts({ workspaceId });
+    const data = tasksData
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [exp, setExp] = useState<any>(null);
+    const params = useParams();
     const Id = params.Id;
 
+    console.log(Id);
+
     useEffect(() => {
-        if (tasksData) {
-            const foundAlert = tasksData.find((alert) => alert.id === Id);
+        if (data) {
+            const foundAlert = data.find((alert) => alert.id === Id);
             setExp(foundAlert);
         }
     }, [Id]);
@@ -50,43 +53,46 @@ export default function PageId({
                     <h2 className="mt-1 text-base text-gray-600">{exp?.description}</h2>
 
                     <div className="mt-1 flex flex-row flex-wrap space-x-4 sm:mt-0">
-                        <div className="mt-2 flex items-center text-sm text-green-700">
-                            <div className={`flex items-center ${status.textClr}`}>
-
-                                {status.icon ? (
-                                    <status.icon className="mr-2 h-4 w-4 text-muted-foreground" />
-                                ) : null}
-                                <span className="text-base font-semibold">
-                                    {status.label}
-                                </span>
+                        {statuses.map((statusItem, index) => (
+                            <div key={`status_${statusItem.value}_${index}`} className="mt-2 flex items-center text-sm text-green-700">
+                                <div className={`flex items-center ${statusItem.textClr}`}>
+                                    {statusItem.icon ? (
+                                        <statusItem.icon className="mr-2 h-4 w-4 text-muted-foreground" />
+                                    ) : null}
+                                    <span className="text-base font-semibold">
+                                        {statusItem.label}
+                                    </span>
+                                </div>
                             </div>
-                        </div>
-                        <div className='mt-2 flex items-center text-sm'>
-
-                            {processLabels ? (
+                        ))}
+                        
+                        {processLabels && (
+                            <div key={`process_${processLabels.value}`} className='mt-2 flex items-center text-sm'>
                                 <Badge
                                     className={`rounded-md ${processLabels.color} ${processLabels.textClr}`}
                                     variant="outline"
                                 >
                                     {processLabels.label}
-
                                 </Badge>
-                            ) : null}
-                        </div>
-                        <div className="mt-2 flex items-center text-sm text-gray-500">
-                            <div className="flex w-[80px] items-center">
-                                {dots && (
-                                    <svg
-                                        className={`${dots.fill} mr-2 h-2 w-2`}
-                                        viewBox="0 0 6 6"
-                                        aria-hidden="true"
-                                    >
-                                        <circle cx={3} cy={3} r={3} />
-                                    </svg>
-                                )}
-                                {dots && dots.label ? <span>{dots.label}</span> : null}
                             </div>
-                        </div>
+                        )}
+                        
+                        {dots && (
+                            <div key={`severity_${dots.value}`} className="mt-2 flex items-center text-sm text-gray-500">
+                                <div className="flex w-[80px] items-center">
+                                    {dots && (
+                                        <svg
+                                            className={`${dots.fill} mr-2 h-2 w-2`}
+                                            viewBox="0 0 6 6"
+                                            aria-hidden="true"
+                                        >
+                                            <circle cx={3} cy={3} r={3} />
+                                        </svg>
+                                    )}
+                                    {dots && dots.label ? <span>{dots.label}</span> : null}
+                                </div>
+                            </div>
+                        )}
 
                         <div className="mt-2 flex items-center">
                             <Image

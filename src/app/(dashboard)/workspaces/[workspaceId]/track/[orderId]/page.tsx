@@ -44,18 +44,18 @@ import {
 } from '@/app/kendo/rawData/dashboard/demandDashboard'
 
 import taskData from '@/features/trackTrace/components/tasks.json'
-import { useEffect } from 'react'
 
-// // Define the type for KPI objects
-// interface KPI {
-//   Name: string;
-//   Value: string | number;
-//   Trend: string;
-//   TargetAch: string | number;
-//   container: JSX.Element;
-//   status: string;
-//   Analyze: string;
-// }
+
+// Define the type for KPI objects
+interface KPI {
+  Name: string;
+  Value: string | number;
+  Trend: string;
+  TargetAch: string | number;
+  container: React.ReactNode;
+  status: string;
+  Analyze: string;
+}
 
 const kpicust_m = [
   {
@@ -224,35 +224,20 @@ const kpiProduct = [
   },
 ]
 
-export default function Page({
-  params,
+
+
+// eslint-disable-next-line @next/next/no-async-client-component
+export default async function Page({
+    params,
 }: {
-  params: { orderId: string }
+    params: Promise<{ orderId: string }>
 }) {
-  const orderId = params.orderId
-
-  useEffect(() => {
-    // Perform any asynchronous operations here, such as fetching data
-    const fetchData = async () => {
-      // Your fetch logic here
-    };
-
-    fetchData();
-  }, [orderId]);
-
-  const exp = taskData.filter((task) => task.orderId === orderId)[0]
-
-  // Move these constant arrays inside the component
-
-
+    const orderId = (await params).orderId
+    const exp = taskData?.filter((task) => task.orderId === orderId)[0]
   return (
-    <>
-      {/* Comments*/}
-
-      <div className="bg-white rounded-lg border">
-
-        <div className=" flex items-center w-full justify-between   border rounded-t-lg text-2xl text-blue-900 font-bold">
-          <div className="p-2"> {exp ? `Order Summary - ${exp.orderId}` : `Order with ID ${orderId} not found`}</div>
+      <div className="bg-white rounded-lg border" role="region" aria-label="Order summary">
+        <div className="flex items-center w-full justify-between border rounded-t-lg text-2xl text-blue-900 font-bold">
+          <div className="p-2">{exp ? `Order Summary - ${exp.orderId}` : `Order with ID ${orderId} not found`}</div>
         </div>
 
         <div className="flex justify-center">
@@ -400,24 +385,6 @@ export default function Page({
                           </div>
                           <div className="">{kpi.container}</div>
                         </div>
-                        {/* <div>
-                          <div className="-mt-px flex divide-x divide-gray-200 bg-gray-50 h-10 ">
-                            <div className="flex w-0 flex-1  ">
-                              <Link
-                                to={kpi.Analyze}
-                                className="relative -mr-px inline-flex flex-1 items-center justify-center gap-x-2 border border-transparent text-sm font-semibold hover:bg-rose-500 hover:text-white"
-                              >
-                                <span className="py-4 inline-flex flex-1 items-cente justify-center gap-x-3 text-sm font-semibold hover:text-white">
-                                  <WrenchScrewdriverIcon
-                                    className="h-5 w-5"
-                                    aria-hidden="true"
-                                  />
-                                  Analyze
-                                </span>
-                              </Link>
-                            </div>
-                          </div>
-                        </div> */}
                       </li>
                     ))}
                   </ul>
@@ -459,24 +426,6 @@ export default function Page({
                           </div>
                           <div className="">{kpi.container}</div>
                         </div>
-                        {/* <div>
-                          <div className="-mt-px flex divide-x divide-gray-200 bg-gray-50 h-10 ">
-                            <div className="flex w-0 flex-1  ">
-                              <Link
-                                to={kpi.Analyze}
-                                className="relative -mr-px inline-flex flex-1 items-center justify-center gap-x-2 border border-transparent text-sm font-semibold hover:bg-rose-500 hover:text-white"
-                              >
-                                <span className="py-4 inline-flex flex-1 items-cente justify-center gap-x-3 text-sm font-semibold hover:text-white">
-                                  <WrenchScrewdriverIcon
-                                    className="h-5 w-5"
-                                    aria-hidden="true"
-                                  />
-                                  Analyze
-                                </span>
-                              </Link>
-                            </div>
-                          </div>
-                        </div> */}
                       </li>
                     ))}
                   </ul>
@@ -520,24 +469,6 @@ export default function Page({
                           </div>
                           <div className="">{kpi.container}</div>
                         </div>
-                        {/* <div>
-                          <div className="-mt-px flex divide-x divide-gray-200 bg-gray-50 h-10 ">
-                            <div className="flex w-0 flex-1  ">
-                              <Link
-                                to={kpi.Analyze}
-                                className="relative -mr-px inline-flex flex-1 items-center justify-center gap-x-2 border border-transparent text-sm font-semibold hover:bg-rose-500 hover:text-white"
-                              >
-                                <span className="py-4 inline-flex flex-1 items-cente justify-center gap-x-3 text-sm font-semibold hover:text-white">
-                                  <WrenchScrewdriverIcon
-                                    className="h-5 w-5"
-                                    aria-hidden="true"
-                                  />
-                                  Analyze
-                                </span>
-                              </Link>
-                            </div>
-                          </div>
-                        </div> */}
                       </li>
                     ))}
                   </ul>
@@ -547,6 +478,6 @@ export default function Page({
           </Tabs>
         </div>
       </div>
-    </>
+  
   )
 }

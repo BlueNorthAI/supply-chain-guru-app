@@ -41,7 +41,7 @@ interface EditTaskFormProps {
 };
 
 export const EditTaskForm = ({ onCancel, projectOptions, memberOptions, initialValues }: EditTaskFormProps) => {
-  const { mutate, isPending } = useUpdateTask();
+  const { mutate    } = useUpdateTask();
 
   const form = useForm<z.infer<typeof createTaskSchema>>({
     resolver: zodResolver(createTaskSchema.omit({ workspaceId: true, description: true, })),
@@ -221,13 +221,11 @@ export const EditTaskForm = ({ onCancel, projectOptions, memberOptions, initialV
                 size="lg"
                 variant="secondary"
                 onClick={onCancel}
-                disabled={isPending}
                 className={cn(!onCancel && "invisible")}
               >
                 Cancel
               </Button>
               <Button
-                disabled={isPending}
                 type="submit"
                 size="lg"
               >

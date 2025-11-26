@@ -42,7 +42,7 @@ interface CreateTaskFormProps {
 
 export const CreateTaskForm = ({ onCancel, projectOptions, memberOptions }: CreateTaskFormProps) => {
   const workspaceId = useWorkspaceId();
-  const { mutate, isPending } = useCreateTask();
+  const { mutate } = useCreateTask();
 
   const form = useForm<z.infer<typeof createTaskSchema>>({
     resolver: zodResolver(createTaskSchema.omit({ workspaceId: true })),
@@ -239,13 +239,11 @@ export const CreateTaskForm = ({ onCancel, projectOptions, memberOptions }: Crea
                 size="lg"
                 variant="secondary"
                 onClick={onCancel}
-                disabled={isPending}
                 className={cn(!onCancel && "invisible")}
               >
                 Cancel
               </Button>
               <Button
-                disabled={isPending}
                 type="submit"
                 size="lg"
               >

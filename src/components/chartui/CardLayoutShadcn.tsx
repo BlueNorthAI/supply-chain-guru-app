@@ -41,13 +41,13 @@ const chartConfig = {
 };
 
 
-export default function CardLayoutShadcn({kpiData}) {
+export default function CardLayoutShadcn({kpiData }: {kpiData: any}) {
   // const emptyStyles = { background: '#ef4444' };
   // const progressStyles = { background: '#22c55e' };
 
   return (
     <>
-      {kpiData.map((kpi) => (
+      {kpiData.map((kpi: any) => (
         <Card key={kpi.title} >
           <div className="relative rounded-lg">
           <span

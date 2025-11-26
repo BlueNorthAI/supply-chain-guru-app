@@ -35,7 +35,7 @@ interface CreateProjectFormProps {
 export const CreateProjectForm = ({ onCancel }: CreateProjectFormProps) => {
   const workspaceId = useWorkspaceId();
   const router = useRouter();
-  const { mutate, isPending } = useCreateProject();
+  const { mutate } = useCreateProject();
 
   const inputRef = useRef<HTMLInputElement>(null);
   
@@ -137,12 +137,10 @@ export const CreateProjectForm = ({ onCancel }: CreateProjectFormProps) => {
                           accept=".jpg, .png, .jpeg, .svg"
                           ref={inputRef}
                           onChange={handleImageChange}
-                          disabled={isPending}
                         />
                         {field.value ? (
                           <Button
                             type="button"
-                            disabled={isPending}
                             variant="destructive"
                             size="xs"
                             className="w-fit mt-2"
@@ -158,7 +156,6 @@ export const CreateProjectForm = ({ onCancel }: CreateProjectFormProps) => {
                         ) : (
                           <Button
                             type="button"
-                            disabled={isPending}
                             variant="teritary"
                             size="xs"
                             className="w-fit mt-2"
@@ -180,13 +177,11 @@ export const CreateProjectForm = ({ onCancel }: CreateProjectFormProps) => {
                 size="lg"
                 variant="secondary"
                 onClick={onCancel}
-                disabled={isPending}
                 className={cn(!onCancel && "invisible")}
               >
                 Cancel
               </Button>
               <Button
-                disabled={isPending}
                 type="submit"
                 size="lg"
               >

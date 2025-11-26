@@ -43,7 +43,7 @@ function StatsColumn({ kpi }: { kpi: KPIData }) {
 
     const renderChart = () => {
         const ChartComponent = kpi.chartType === "bar" ? BarChart : kpi.chartType === "line" ? LineChart : AreaChart
-        const DataComponent = kpi.chartType === "bar" ? Bar : kpi.chartType === "line" ? Line : Area
+        const DataComponent = (kpi.chartType === "bar" ? Bar : kpi.chartType === "line" ? Line : Area) as React.ElementType
 
         return (
             <ResponsiveContainer width="100%" height={200}>

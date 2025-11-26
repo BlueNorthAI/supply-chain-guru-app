@@ -560,7 +560,7 @@ export default function ReturnsRMADashboard({ rmaData }: ReturnsRMADashboardProp
                             <Button
                               size="sm"
                               className={`w-full text-xs ${action.recommended ? "bg-blue-600 hover:bg-blue-700" : ""}`}
-                              variant={action.recommended ? "default" : "outline"}
+                              variant={action.recommended ? "primary" : "outline"}
                               onClick={() => {
                                 setSelectedOption(action.id)
                                 setIsDialogOpen(true)

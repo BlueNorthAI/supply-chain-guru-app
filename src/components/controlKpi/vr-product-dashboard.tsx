@@ -216,7 +216,7 @@ export default function VRProductDashboard({ productData }: VRProductDashboardPr
           <CardContent className="space-y-3">
                 <Dialog open={isExpediteDialogOpen} onOpenChange={setIsExpediteDialogOpen}>
                   <DialogTrigger asChild>
-                    <Button className="w-full" variant={isLowStock ? "default" : "outline"}>
+                    <Button className="w-full" variant={isLowStock ? "primary" : "outline"}>
                       <Truck className="h-4 w-4 mr-2" />
                       {isLowStock ? "Expedite Shipment" : "Schedule Shipment"}
                     </Button>

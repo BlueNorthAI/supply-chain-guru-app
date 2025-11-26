@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 import { Button, type ButtonProps } from "@/components/ui/button";
 import { ResponsiveModal } from "@/components/responsive-modal";
@@ -14,7 +14,7 @@ export const useConfirm = (
   title: string,
   message: string,
   variant: ButtonProps["variant"] = "primary"
-): [() => JSX.Element, () => Promise<unknown>] => {
+): [() => React.ReactElement, () => Promise<unknown>] => {
   const [promise, setPromise] = useState<{ resolve: (value: boolean) => void } | null>(null);
 
   const confirm = () => {

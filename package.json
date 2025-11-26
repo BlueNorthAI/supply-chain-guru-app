@@ -36,6 +36,7 @@
     "@radix-ui/react-slot": "^1.1.1",
     "@radix-ui/react-tabs": "^1.1.1",
     "@radix-ui/react-tooltip": "^1.1.8",
+    "@radix-ui/react-visually-hidden": "^1.2.4",
     "@tanstack/react-query": "4.29.x",
     "@tanstack/react-table": "8.20.5",
     "@xyflow/react": "^12.4.2",

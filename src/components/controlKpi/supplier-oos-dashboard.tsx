@@ -510,7 +510,7 @@ export default function SupplierOOSDashboard({ supplierData }: SupplierOOSDashbo
                         <Button
                           size="sm"
                           className={`w-full text-xs ${option.recommended ? "bg-blue-600 hover:bg-blue-700" : ""}`}
-                          variant={option.recommended ? "default" : "outline"}
+                          variant={option.recommended ? "primary" : "outline"}
                           onClick={() => {
                             setSelectedOption(option.id)
                             setIsDialogOpen(true)

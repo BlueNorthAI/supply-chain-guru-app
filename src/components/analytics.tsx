@@ -5,7 +5,9 @@ import { ScrollArea, ScrollBar } from "./ui/scroll-area";
 import { AnalyticsCard } from "./analytics-card";
 import { DottedSeparator } from "./dotted-separator";
 
-export const Analytics = ({ data }: ProjectAnalyticsResponseType) => {
+export const Analytics = ({ data }: { data: ProjectAnalyticsResponseType["data"]}) => {
+  if (!data) return null;
+
   return (
     <ScrollArea className="border rounded-lg w-full whitespace-nowrap shrink-0">
       <div className="w-full flex flex-row">

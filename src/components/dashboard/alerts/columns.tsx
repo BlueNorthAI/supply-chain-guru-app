@@ -34,7 +34,7 @@ const TaskActionCell = () => {
   const { open } = useCreateTaskModal();
 
   return (
-    <ButtonNormal className="h-8 w-8 hover:bg-blue-100" onClick={open}>
+    <ButtonNormal className="h-8 w-8 hover:bg-green-500" onClick={open}>
       <span className="text-center text-xl font-bold text-white">+</span>
     </ButtonNormal>
   );

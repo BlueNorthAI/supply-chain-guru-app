@@ -24,18 +24,7 @@ const routes = [
     icon: MdOutlineWarehouse,
     activeIcon: MdOutlineWarehouse,
   },
-  // {
-  //   label: "Operations Metrics2",
-  //   href: "/operation",
-  //   icon: MdOutlineWarehouse,
-  //   activeIcon: MdOutlineWarehouse,
-  // },
-  {
-    label: "Cost Analytics",
-    href: "/costAnalysis",
-    icon: AiOutlineDollarCircle,
-    activeIcon: AiOutlineDollarCircle,
-  },
+
   {
     label: "Track & Trace",
     href: "/track",
@@ -43,15 +32,43 @@ const routes = [
     activeIcon: GoServer,
   },
  
-  {
-    label: "Benchmarking",
-    href: "/benchmark",
-    icon: GoNorthStar,
+ 
+ {
+    label: "Demand Balancing",
+    href: "/controlKpi/demand-balancing",
+      icon: GoNorthStar,
     activeIcon: GoNorthStar,
   },
-
-
-
+  {
+    label: "Inventory Projections",
+    href: "/controlKpi/finishGoods",
+      icon: GoNorthStar,
+    activeIcon: GoNorthStar,
+  },
+  {
+    label: "Order Fulfillment",
+    href: "/controlKpi/custReceipt",
+      icon: GoNorthStar,
+    activeIcon: GoNorthStar,
+  },
+  // {
+  //   label: "Operations Metrics2",
+  //   href: "/operation",
+  //   icon: MdOutlineWarehouse,
+  //   activeIcon: MdOutlineWarehouse,
+  // },
+  // {
+  //   label: "Cost Analytics",
+  //   href: "/costAnalysis",
+  //   icon: AiOutlineDollarCircle,
+  //   activeIcon: AiOutlineDollarCircle,
+  // },
+//  {
+//     label: "Benchmarking",
+//     href: "/benchmark",
+//     icon: GoNorthStar,
+//     activeIcon: GoNorthStar,
+//   },
   //   {
   //   label: "Incidents",
   //   href: "/incidents",

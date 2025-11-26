@@ -9,10 +9,10 @@ import { WorkspaceSwitcher } from "./workspace-switcher";
 
 export const Sidebar = () => {
   return (
-    <aside className="h-full bg-neutral-100 p-4 w-full">
+    <aside className="h-full bg-[oklch(0.98_0.01_80)] p-4 w-full">
       <Link href="/" className="flex items-center">
         <Image src="/logo-supply-chain-guru/icon-transparent.png" alt="logo" width={40} height={40} />
-        <Image src="/logo-supply-chain-guru/logo-horizontal-text.png" alt="logo" width={200} height={200} />
+        <Image src="/logo-supply-chain-guru/logo-horizontal-text.png" alt="logo" width={200} height={200} className="-ml-1 " />
       </Link>
       <DottedSeparator className="my-4" />
       <WorkspaceSwitcher />

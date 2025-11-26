@@ -258,9 +258,9 @@ export default function DemandBalancingDashboard({ demandData }: DemandBalancing
           <CardContent className="space-y-3">
                 <Dialog open={isExpediteDialogOpen} onOpenChange={setIsExpediteDialogOpen}>
                   <DialogTrigger asChild>
-                    <Button className="w-full" variant={isLowStock ? "default" : "outline"}>
+                    <Button className="w-full" variant={isLowStock ? "primary" : "outline"}>
                       <Truck className="h-4 w-4 mr-2" />
-                      {isLowStock ? "Transfer Shipment" : "Transfer Shipment"}
+                      Transfer Shipment
                     </Button>
                   </DialogTrigger>
                   <DialogContent className="sm:max-w-[425px]">
@@ -823,7 +823,7 @@ export default function DemandBalancingDashboard({ demandData }: DemandBalancing
                       <Button
                         size="sm"
                         className={`w-full text-xs ${index === 0 ? "bg-blue-600 hover:bg-blue-700" : ""}`}
-                        variant={index === 0 ? "default" : "outline"}
+                        variant={index === 0 ? "primary" : "outline"}
                       >
                         Select Option
                       </Button>

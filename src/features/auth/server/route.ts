@@ -25,21 +25,25 @@ const app = new Hono()
     async (c) => {
       const { email, password } = c.req.valid("json");
 
-      const { account } = await createAdminClient();
-      const session = await account.createEmailPasswordSession(
-        email,
-        password,
-      );
+      try {
+        const { account } = await createAdminClient();
+        const session = await account.createEmailPasswordSession(
+          email,
+          password,
+        );
 
-      setCookie(c, AUTH_COOKIE, session.secret, {
-        path: "/",
-        httpOnly: true,
-        secure: true,
-        sameSite: "strict",
-        maxAge: 60 * 60 * 24 * 30,
-      });
+        setCookie(c, AUTH_COOKIE, session.secret, {
+          path: "/",
+          httpOnly: true,
+          secure: true,
+          sameSite: "strict",
+          maxAge: 60 * 60 * 24 * 30,
+        });
 
-      return c.json({ success: true });
+        return c.json({ success: true });
+      } catch (error) {
+        return c.json({ error: "Invalid email or password" }, 401);
+      }
     }
   )
   .post(
@@ -48,28 +52,32 @@ const app = new Hono()
     async (c) => {
       const { name, email, password } = c.req.valid("json");
 
-      const { account } = await createAdminClient();
-      await account.create(
-        ID.unique(),
-        email,
-        password,
-        name,
-      );
+      try {
+        const { account } = await createAdminClient();
+        await account.create(
+          ID.unique(),
+          email,
+          password,
+          name,
+        );
 
-      const session = await account.createEmailPasswordSession(
-        email,
-        password,
-      );
+        const session = await account.createEmailPasswordSession(
+          email,
+          password,
+        );
 
-      setCookie(c, AUTH_COOKIE, session.secret, {
-        path: "/",
-        httpOnly: true,
-        secure: true,
-        sameSite: "strict",
-        maxAge: 60 * 60 * 24 * 30,
-      });
+        setCookie(c, AUTH_COOKIE, session.secret, {
+          path: "/",
+          httpOnly: true,
+          secure: true,
+          sameSite: "strict",
+          maxAge: 60 * 60 * 24 * 30,
+        });
 
-      return c.json({ success: true });
+        return c.json({ success: true });
+      } catch (error) {
+        return c.json({ error: "Failed to register user" }, 400);
+      }
     }
   )
   .post("/logout", sessionMiddleware, async (c) => {

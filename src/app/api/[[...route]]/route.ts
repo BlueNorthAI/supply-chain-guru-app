@@ -10,6 +10,7 @@ import accounts from "@/features/accounts/server/route";
 import organizations from "@/features/workspaces/server/organizations";
 import alerts from "@/features/alerts/server/route";
 import daily_metrics from "@/features/receving/server/route";
+import shopify from "@/features/shopify/server/route";
 const app = new Hono().basePath("/api");
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -22,7 +23,8 @@ const routes = app
   .route("/accounts", accounts)
   .route("/organizations", organizations)
   .route("/daily_metrics", daily_metrics)
-  .route("/alerts", alerts);
+  .route("/alerts", alerts)
+  .route("/shopify", shopify);
 
 export const GET = handle(app);
 export const POST = handle(app);

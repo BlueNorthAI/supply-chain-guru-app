@@ -2,7 +2,14 @@
   "permissions": {
     "allow": [
       "Bash(pnpm run build:*)",
-      "Bash(pnpm add:*)"
+      "Bash(pnpm add:*)",
+      "Bash(find:*)",
+      "Bash(tree:*)",
+      "Bash(node test-appwrite-connection.js:*)",
+      "Bash(node test-shopify-setup.js:*)",
+      "Bash(echo:*)",
+      "Bash(npm install:*)",
+      "Bash(node verify-shopify-config.js:*)"
     ],
     "deny": [],
     "ask": []
